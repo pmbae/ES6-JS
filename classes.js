@@ -9,15 +9,20 @@ class Employee {
 }
 /* Problem Number 2 */
 class Manager extends Employee {
-    constructor(employeename, employeeid, employeepermissions, storenumber, employeelist,){
+    constructor(employeename, employeeid, employeepermissions, storenumber, employeelist){
         super(employeename,employeeid,employeepermissions,storenumber);
-        this.employeesmanaged = [];
+        this.employeelist = [];
             addnewemployee = function (employeename){
-                this.employeesmanaged.push(employeename);
-                return employeesmanaged;
+                this.employeelist.push(employeename);
+                return employeelist;
             }
-         
-    }
+        }
+        changepermissions() {
+            return this.employeename + "has a new access right: " + this.permissions;
+
+
+        }
+    
 }
 /* Problem Number 3 */
 const countries = ['Finland', 'Estonia', 'Sweden', 'Denmark', 'Norway'];
@@ -29,18 +34,32 @@ const rectangle = {
     area: 200,
     perimeter: 60
 }
-myRectangle(rectangle);
-function myRectangle({width, height, area, perimeter}){
-    const mysamplerectangle = "My rectangle has width " + width + "and its height is " + height + "which means that it's area is " + area + "and its perimeter is " + perimeter + "."
-    return mysamplerectangle;
-;}
+
+const {width, height, area, perimeter } = rectangle;
+console.log("width: ", width);
+console.log("height: ", height);
+console.log("area: ", area);
+console.log("perimeter: ", perimeter);
+
+
+document.getElementById('width').innerText =("Width: " + width);
+document.getElementById('height').innerText =("Height: " + height);
+document.getElementById('area').innerText =("Area: " + area);
+document.getElementById('perimeter').innerText =("Perimeter: " + perimeter);
+
 /* Problem Number 5 */
 const evens = [0,2,4,6,8,10];
-document.getElementById('evenarray').innerText = evens
+document.getElementById('evenarray').innerText = "Even Array: " + evens;
 const odds = [1,3,5,7,9];
-document.getElementById('oddarray').innerText = odds
-const numlist = [...evens,...odds];
-const newarray = numlist.map(x => x);
-document.getElementById('newarray').innerText = newarray
-const sortedarray = newarray.sort((a,b)=> a-b)
-document.getElementById('sortedarray').innerText = sortedarray
+document.getElementById('oddarray').innerText = "Odd Array: " + odds;
+const allnumbers = [...evens, ...odds];
+
+console.log("all numbers: ", allnumbers);
+
+const newarray = allnumbers.map(x => x);
+
+console.log("New Array: ", newarray);
+
+document.getElementById('newarray').innerText = "Both Arrays Together: " + newarray;
+const sortarray = newarray.sort((a,b)=> a-b);
+document.getElementById('sortedarray').innerText = "Sorted Array: " + sortarray;
